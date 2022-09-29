@@ -1,34 +1,26 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { BreakpointObserver } from '@angular/cdk/layout';
-
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'SimpleMesage';
-  ngOptions = ['Général', 'Aléatoire', 'Formation', 'Cours'];
-  ngDropdown = this.ngOptions[1];
+export class AppComponent implements OnDestroy {
+  public title: string;
+  private obs: Observable<any>;
+  private sub: Subscription;
 
-  @ViewChild(MatSidenav)
-  sidenav!: MatSidenav;
+  constructor() {
+    this.title = 'crm';
+    this.obs = new Observable<any>((listX) => {
+      listX.next('toto');
+    });
 
-  constructor(private observer: BreakpointObserver) {
-
+    this.sub = this.obs.subscribe((data) => console.log(data));
   }
 
-  ngAfterViewInit() {
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-      if (res.matches) {
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      } else {
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }
-    })
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

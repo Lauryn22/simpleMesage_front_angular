@@ -1,1 +1,12 @@
-<p>page-add-chanel works!</p>
+<div style="width: 400px; margin: auto;">
+  <div>Creation d'un nouveau canal</div>
+  <div>
+    <label for="title">Nom : </label>
+    <input type="text" class="chanel-name" name ="title" required />
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea class="chanel-desc" name="description" required></textarea>
+  </div>
+  <button (submitted)="addChanel()" class="btn btn-success">Ajouter</button>
+</div>

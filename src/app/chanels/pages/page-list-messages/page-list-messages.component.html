@@ -1,0 +1,14 @@
+<div *ngIf="listMessage$ | async as listMessage">
+<div *ngFor="let item of listMessage"  class="card">
+  <div class="card-header">
+    {{item.sender}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{item.date | date:'EEEE, MMMM d, y, h:mm:ss'}}
+    </h5>
+    <p class="card-text">
+      {{item.content}}</p>
+  </div>
+</div>
+</div>

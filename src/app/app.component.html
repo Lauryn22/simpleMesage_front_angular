@@ -1,57 +1,9 @@
-<mat-toolbar>
-  <button mat-icon-button *ngIf="sidenav.mode === 'over' " (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened">
-      menu
-    </mat-icon>
-    <mat-icon *ngIf="sidenav.opened">
-      close
-    </mat-icon>
-  </button>
-  Simple Message
+<app-ui>
+  <app-icon-nav class="tr-open"></app-icon-nav>
+  //<app-icon-close class="tr-close"></app-icon-close>
+  <app-header class="fixed-top"></app-header>
+  <app-nav class="tr-nav"></app-nav>
+  <router-outlet class="tr-content"></router-outlet>
+  <app-footer class="tr-footer"></app-footer>
 
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav">
-
-    <!-- <mat-icon>expand_more</mat-icon> -->
-
-    <select class="form-control" id="DropdownOptions">
-      <option
-        *ngFor="let opt of ngOptions"
-        [selected]="opt === ngDropdown"
-        [value]="opt"
-      >
-        {{ opt }}
-      </option>
-    </select>
-
-
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>person</mat-icon>
-      <span>Profile</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>info</mat-icon>
-      <span>About</span>
-    </button>
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button">
-      <mat-icon>help</mat-icon>
-      <span>Help</span>
-    </button>
-
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content mat-elevation-z4">
-      Main content
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+</app-ui>

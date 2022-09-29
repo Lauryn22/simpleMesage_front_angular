@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChanelsService } from '../../services/chanels.service';
 
 @Component({
   selector: 'app-page-add-chanel',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAddChanelComponent implements OnInit {
 
-  constructor() { }
+  chanel = {
+    name: '',
+    description: '',
+    messages: []
+  }
+
+  constructor(private chanelService: ChanelsService) { }
 
   ngOnInit(): void {
+  }
+
+  public addChanel(): void {
+    const data = {
+      name: this.chanel.name,
+      description: this.chanel.description,
+      messages: this.chanel.messages
+    };
+
+    this.chanelService.createNewChanel(data).subscribe(response =>{
+      console.log(response);
+
+    });
+
   }
 
 }
