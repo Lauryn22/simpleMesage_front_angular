@@ -9,11 +9,27 @@ import { ChanelsService } from '../../services/chanels.service';
 export class PageListMessagesComponent implements OnInit {
   public listMessage$ = this.chanelService.collection$;
 
+  public message = {
+    content: '',
+    chanel: {
+      "id" : ""
+    }
+  }
+
   constructor(private chanelService: ChanelsService) {
-this.chanelService.refreshCollection(4);
+  this.chanelService.refreshCollection(4);
   }
 
   ngOnInit(): void {
+  }
+
+  public sendNewMessage(id: number, message: any): void {
+    message = {
+      content: this.message.content,
+      chanel: id
+    };
+
+    this.chanelService.createNewMessage(message);
   }
 
 }

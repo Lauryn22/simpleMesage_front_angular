@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChanelsService } from 'src/app/chanels/services/chanels.service';
-import { VersionService } from '../../services/version.service';
+
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getMessageById(id: number) {
+  public getMessageById(id: number) {
     this.chanelService.getMessageByChanel(id).subscribe((data) =>{
       console.log(data);
     })

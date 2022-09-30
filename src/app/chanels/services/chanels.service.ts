@@ -26,7 +26,7 @@ export class ChanelsService {
   }
 
 
-  getMessageByChanel(id: number): Observable<any> {
+  public getMessageByChanel(id: number): Observable<any> {
     return this.http.get(`${this.urlApi}/messages/chanel/${id}`).pipe(
       tap((data) => {
         this.collection$.next(data);
@@ -42,8 +42,12 @@ export class ChanelsService {
     return this.http.put(`${this.urlApi}/chanels/${id}`, Chanel);
   }
 
-  deleteChanel(id: number): Observable<any> {
+  public deleteChanel(id: number): Observable<any> {
     return this.http.delete(`${this.urlApi}/chanels/${id}`);
   }
 
+  public createNewMessage(data: any): Observable<any>{
+    return this.http.post(this.urlApi, data);
+
+  }
 }

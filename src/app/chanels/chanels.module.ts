@@ -14,7 +14,8 @@ import { FormMessageComponent } from './components/form-message/form-message.com
     PageAddChanelComponent,
     PageEditChanelComponent,
     PageListMessagesComponent,
-    FormMessageComponent
+
+
   ],
   imports: [
     CommonModule,
@@ -22,7 +23,7 @@ import { FormMessageComponent } from './components/form-message/form-message.com
   ],
   exports: [
     PageListMessagesComponent,
-    FormMessageComponent
+
   ]
 })
 export class ChanelsModule { }

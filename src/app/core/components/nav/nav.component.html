@@ -1,15 +1,17 @@
-<nav>
+<nav >
   <ul>
-    <li class="Canaux">
+    <li class="Canaux" class="fw-bold">
       <a href="#">Canaux</a>
       <ul>
 
         <li *ngFor="let item of listCanaux" class="Canaux">
           <a (click)="getMessageById(item.id)">{{item.name}}</a>
-        </li>
-        <button routerLink="add" >Ajouter un canal</button>
-      </ul>
 
+        </li>
+        <br />
+
+      </ul>
+      <button routerLink="add" type="button" class="btn btn-primary">Ajouter un canal</button>
     </li>
 
   </ul>

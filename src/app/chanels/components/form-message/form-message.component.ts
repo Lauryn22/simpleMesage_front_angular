@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChanelsService } from '../../services/chanels.service';
 
 @Component({
   selector: 'app-form-message',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormMessageComponent implements OnInit {
 
-  constructor() { }
+
+
+
+  constructor(private chanelService: ChanelsService) {  }
+
 
   ngOnInit(): void {
   }

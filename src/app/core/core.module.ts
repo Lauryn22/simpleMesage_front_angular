@@ -6,9 +6,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ChanelsModule } from '../chanels/chanels.module';
 import { RouterModule } from '@angular/router';
+import { FormMessageComponent } from '../chanels/components/form-message/form-message.component';
 
 @NgModule({
   declarations: [
+    FormMessageComponent,
     FooterComponent,
     HeaderComponent,
     NavComponent
